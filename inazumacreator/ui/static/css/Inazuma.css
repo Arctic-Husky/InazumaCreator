@@ -1,0 +1,35 @@
+body{
+    
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+nav button {
+    width: 20rem;
+    height: 7rem;
+    font-size: 20px;
+    text-align: center;
+    line-height: 7rem;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+    margin: 3rem;
+}
+
+ p{
+       font-size: xx-large;
+   }
+   .font{
+    
+   text-align: center;
+   
+   
+   
+   
+}
