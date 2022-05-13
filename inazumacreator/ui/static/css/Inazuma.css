@@ -1,25 +1,68 @@
+@font-face {
+  font-family: Fonte;
+  src: url("assets/ndsbios_memesbruh03.ttf");
+}
+
+
+
+
 body{
-    
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #D5DCDA;
    
 }
 
+.topnav {
+    overflow: hidden;
+    background-color: #087F8C;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #F7782A;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: Fonte;
+  }
+  
+  .topnav a:hover {
+    background-color: #095256;
+    color: white;
+  }
+  
+  .topnav a.limpar {
+    background-color: #F7782A;
+    color: white;
+  }
+
+  txt {
+    font-family: Fonte;
+  }
+
+  
+    
+
+ 
+
+
+
 nav button {
-    width: 20rem;
-    height: 7rem;
-    font-size: 20px;
+    background-image: url("assets/botao.png");
+    color: azure;
+    
+    width: 578px;
+    height: 107px;
+    font-size: 50px;
     text-align: center;
     line-height: 7rem;
-    font-family: sans-serif;
-    text-transform: uppercase;
+    font-family: Fonte;
     letter-spacing: 1px;
     position: relative;
     transition: 0.3s;
     margin: 3rem;
+    padding: 0;
+    border: none;
 }
 
  p{
@@ -29,7 +72,41 @@ nav button {
     
    text-align: center;
    
+
+
    
-   
-   
+}
+
+#endou {
+
+}
+
+.atributos{
+  font-family: Fonte;
+  font-size: 30px;
+}
+
+.submit {
+  background-image: url("assets/botao.png");
+    color: azure;
+    
+    width: 578px;
+    height: 107px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 7rem;
+    font-family: Fonte;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+    margin: 3rem;
+    padding: 0;
+    border: none;
+}
+
+.rodape{
+  background: #F7782A;
+  
+border-top: #087F8C solid 1.5vw;
+height: 10vw;
 }
