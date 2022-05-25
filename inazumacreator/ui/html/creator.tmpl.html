@@ -1,0 +1,132 @@
+{{template "base" .}}
+
+{{define "body"}}
+
+
+
+<div class="font">
+  <p>Bem vindo ao Inazuma Creator</p>
+
+  <p>Escolha o modelo base do seu personagem</p>
+  
+<div class="modelos">
+    <img src="assets/Endou.png" class="endou" id="endou" width="232" height="446"> 
+    <img src="assets/Touko.png" class="touko" id="touko" width="232" height="446">
+    
+</div>
+
+
+<nav>
+  
+  <ul>
+    
+    <button onclick="alert('Masculino');" id="Masculino" >Endou</button>
+    <button onclick="alert('Feminino');" id="Feminino" >Touko</button>
+   
+  </ul>
+</nav>
+<div id="atributos" class="atributos">
+
+<p class="txt">  
+  Selecione os atributos<br> do seu personagem:
+    </p>
+
+<label for="nome">Nome</label><br>
+<input type="text" id="fname" name="fname"><br><br>
+
+<p>
+  Selecione a posiçao em que seu personagem joga
+</p>
+
+
+<input type="radio" id="gol" name="posicao" value="gol">
+  <label for="gol">Gol</label><br><br>
+
+  <input type="radio" id="ataque" name="posicao" value="ataque">
+  <label for="ataque">Ataque</label><br><br>
+
+  <input type="radio" id="defesa" name="posicao" value="defesa">
+  <label for="defesa">Defesa</label><br><br>
+
+<input type="radio" id="meio_campo" name="posicao" value="meio_campo">
+  <label for="meio_campo">Meio Campo</label><br><br>
+
+
+<p>
+Escolha o elemento do seu personagem
+</p><br><br>
+
+<img src="assets/elementosfiltro.png" class="elementos" id="elementos"><br><br>
+
+<input type="radio" id="fogo" name="elemento" value="fogo">
+  <label for="gol">fogo</label><br><br>
+
+<img src="assets/fogo.png" class="fogo" id="fogo"><br><br>
+
+  <input type="radio" id="vento" name="elemento" value="vento">
+  <label for="vento">vento</label><br><br>
+
+<img src="assets/vento.png" class="vento" id="vento"><br><br>
+
+  <input type="radio" id="terra" name="elemento" value="terra">
+  <label for="terra">terra</label><br><br>
+
+<img src="assets/terra.png" class="terra" id="terra"><br><br>
+
+<input type="radio" id="madeira" name="elemento" value="madeira">
+  <label for="madeira">madeira</label><br><br>
+
+<img src="assets/madeira.png" class="madeira" id="madeira"><br><br>
+
+<p>
+Escolha 2 habilidades para seu personagem
+</p>
+
+<input type="checkbox" id="check1" name="check1" class="check">
+<label class="layout" for="check1"></label>
+  <br>
+
+
+
+<input type="checkbox" id="check2" name="check2" class="check">
+<label class="layout" for="check2"></label>
+  <br>
+
+
+
+<input type="checkbox" id="check3" name="check3" class="check">
+<label class="layout" for="check3"></label>
+  <br>
+
+
+<input type="checkbox" id="check4" name="check4" class="check">
+<label class="layout" for="check4"></label>
+  <br>
+
+
+<script>
+
+var checks = document.querySelectorAll(".check");
+var max = 2;
+for (var i = 0; i < checks.length; i++)
+checks[i].onclick = selectiveCheck;
+function selectiveCheck (event) {
+var checkedChecks = document.querySelectorAll(".check:checked");
+if (checkedChecks.length >= max + 1)
+  return false;
+}
+
+</script>
+
+
+<p>
+
+
+<input type="submit" value="Submit" id="submit" class="submit">
+
+
+
+</div>
+
+
+  {{end}}
