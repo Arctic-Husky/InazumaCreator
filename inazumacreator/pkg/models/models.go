@@ -12,10 +12,10 @@ type Personagem struct{
   // a decidir
   ID int
   Nome string
-  habilidade1 string
-  habilidade2 string
-  posicao string
-  elemento string
+  Habilidade1 string
+  Habilidade2 string
+  Posicao string
+  Elemento string
   Created time.Time
   Expires time.Time
 }

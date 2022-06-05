@@ -1,17 +1,17 @@
 {{template "base" .}}
-
+{{define "title"}} Creator {{end}}
 {{define "body"}}
-
-
 
 <div class="font">
   <p>Bem vindo ao Inazuma Creator</p>
 
   <p>Escolha o modelo base do seu personagem</p>
+
+<form id="form">
   
 <div class="modelos">
-    <img src="assets/Endou.png" class="endou" id="endou" width="232" height="446"> 
-    <img src="assets/Touko.png" class="touko" id="touko" width="232" height="446">
+    <img src="../static/assets/Endou.png" class="endou" id="endou" width="232" height="446"> 
+    <img src="../static/assets/Touko.png" class="touko" id="touko" width="232" height="446">
     
 </div>
 
@@ -20,8 +20,10 @@
   
   <ul>
     
-    <button onclick="alert('Masculino');" id="Masculino" >Endou</button>
-    <button onclick="alert('Feminino');" id="Feminino" >Touko</button>
+    <button onclick="setRadioData('#EndouRadio')" id="Endou" class="button-modelo">Endou</button>
+    <input style="visibility:hidden" type="radio" id="EndouRadio" name="modelo" value="Endou">
+    <button onclick="setRadioData('#ToukoRadio')" id="Touko" class="button-modelo" >Touko</button>
+    <input style="visibility:hidden" type="radio" id="ToukoRadio" name="modelo" value="Touko">
    
   </ul>
 </nav>
@@ -56,27 +58,27 @@
 Escolha o elemento do seu personagem
 </p><br><br>
 
-<img src="assets/elementosfiltro.png" class="elementos" id="elementos"><br><br>
+<img src="../static/assets/Elementosfiltro.png" class="elementos" id="elementos"><br><br>
 
 <input type="radio" id="fogo" name="elemento" value="fogo">
   <label for="gol">fogo</label><br><br>
 
-<img src="assets/fogo.png" class="fogo" id="fogo"><br><br>
+<img src="../static/assets/fogo.png" class="fogo" id="fogo"><br><br>
 
   <input type="radio" id="vento" name="elemento" value="vento">
   <label for="vento">vento</label><br><br>
 
-<img src="assets/vento.png" class="vento" id="vento"><br><br>
+<img src="../static/assets/vento.png" class="vento" id="vento"><br><br>
 
   <input type="radio" id="terra" name="elemento" value="terra">
   <label for="terra">terra</label><br><br>
 
-<img src="assets/terra.png" class="terra" id="terra"><br><br>
+<img src="../static/assets/terra.png" class="terra" id="terra"><br><br>
 
 <input type="radio" id="madeira" name="elemento" value="madeira">
   <label for="madeira">madeira</label><br><br>
 
-<img src="assets/madeira.png" class="madeira" id="madeira"><br><br>
+<img src="../static/assets/madeira.png" class="madeira" id="madeira"><br><br>
 
 <p>
 Escolha 2 habilidades para seu personagem
@@ -104,7 +106,46 @@ Escolha 2 habilidades para seu personagem
   <br>
 
 
+
+
+
+<p>
+
+
+<input type="submit" value="Submit" id="submit" class="submit">
+
+</form>
+
+</div>
+
 <script>
+
+function setRadioData(id){
+	$(".button-modelo").click(function(event){
+		event.preventDefault()	
+		$(id).click()
+	})
+}	
+function getData(form){
+  var data = $(form).serializeArray().reduce(function(obj, item) {
+          obj[item.name] = item.value;
+          return obj;
+      }, {});
+      console.log(data)
+      return data
+}
+
+function sendData() {
+    $("input[type='submit']").click(()=>{
+        getData("#form")
+    })
+}
+
+var form = document.getElementById("form");
+function handleForm(event) { event.preventDefault(); } 
+form.addEventListener('submit', handleForm);
+sendData()
+  
 
 var checks = document.querySelectorAll(".check");
 var max = 2;
@@ -117,16 +158,5 @@ if (checkedChecks.length >= max + 1)
 }
 
 </script>
-
-
-<p>
-
-
-<input type="submit" value="Submit" id="submit" class="submit">
-
-
-
-</div>
-
 
   {{end}}

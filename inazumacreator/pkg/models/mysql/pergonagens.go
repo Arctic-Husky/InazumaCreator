@@ -9,10 +9,11 @@ type PersonagemModel struct{
   DB *sql.DB
 }
 
-func(m *PersonagemModel)Insert(title,content,expires string)(int,error){
-  stmt := ``
+func(m *PersonagemModel)Insert(nome,habilidade1,habilidade2,posicao,elemento,expires string)(int,error){
+  stmt := `INSERT INTO Personagens (nome, habilidade1, habilidade2, posicao, elemento,created, expires)
+  VALUES(?,?,?,?,?,UTC_TIMESTAMP(),DATE_ADD(UTC_TIMESTAMP(),INTERVAL ? DAY))`
 
-  result,err := m.DB.Exec(stmt, title, content, expires)
+  result,err := m.DB.Exec(stmt, nome, habilidade1, habilidade2, posicao, elemento, expires)
   if err != nil{
     return 0, err
   }
@@ -25,13 +26,13 @@ func(m *PersonagemModel)Insert(title,content,expires string)(int,error){
 }
 
 func(m *PersonagemModel)Get(id int)(*models.Personagem, error){
-  stmt := ``
+  stmt := `SELECT id, nome, habilidade1, habilidade2, posicao, elemento, created, expires FROM Personagens WHERE expires > UTC_TIMESTAMP() AND id = ?`
 
   row := m.DB.QueryRow(stmt, id)
 
   s := &models.Personagem{}
 
-  err := row.Scan(&s.ID, &s.Title, &s.Content, &s.Created, &s.Expires) // <--
+  err := row.Scan(&s.ID, &s.Nome, &s.Habilidade1, &s.Habilidade2, &s.Posicao, &s.Elemento, &s.Created,&s.Expires) // <--
 
   if err == sql.ErrNoRows{
     return nil, models.ErrNoRecord
@@ -43,7 +44,7 @@ func(m *PersonagemModel)Get(id int)(*models.Personagem, error){
 }
 
 func(m *PersonagemModel)Latest()([]*models.Personagem, error){
-  stmt := ``
+  stmt := `SELECT id, nome, habilidade1, habilidade2, posicao, elemento, created, expires FROM Personagens WHERE expires > UTC_TIMESTAMP() ORDER BY created DESC LIMIT 10`
 
   rows , err := m.DB.Query(stmt)
   if err != nil{
@@ -51,18 +52,18 @@ func(m *PersonagemModel)Latest()([]*models.Personagem, error){
   }
   defer rows.Close()
 
-  snippets := []*models.Personagem{}
+  personagens := []*models.Personagem{}
   for rows.Next(){
     s := &models.Personagem{}
-    err = rows.Scan(&s.ID, &s.Title, &s.Content, &s.Created, &s.Expires) // <--
+    err = rows.Scan(&s.ID, &s.Nome, &s.Habilidade1, &s.Habilidade2, &s.Posicao, &s.Elemento, &s.Created,&s.Expires)// <--
     if err != nil{
       return nil,err
     }
-    snippets = append(snippets,s)
+    personagens = append(personagens,s)
   }
   err = rows.Err()
   if err != nil{
     return nil,err
   }
-  return snippets,nil
+  return personagens,nil
 }

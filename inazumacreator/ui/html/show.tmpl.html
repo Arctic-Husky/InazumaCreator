@@ -1,13 +1,16 @@
 {{template "base" .}}
-{{define "title"}} Snippet {{.ID}} {{end}}
+{{define "title"}} Personagem {{.ID}} {{end}}
 
 {{define "body"}}
-  <div class="snippet">
+  <div class="personagem">
     <div class="metadata">
-      <strong>{{.Title}}</strong>
+      <strong>{{.Nome}}</strong>
       <span>#{{.ID}}</span>
     </div>
-    <pre> <code>{{.Content}}</code> </pre>
+    <pre> <code>{{.Habilidade1}}</code> </pre>
+    <pre> <code>{{.Habilidade2}}</code> </pre>
+    <pre> <code>{{.Posicao}}</code> </pre>
+    <pre> <code>{{.Elemento}}</code> </pre>
     <div class="metadata">
       <time>Created: {{.Created}}</time>
       <time>Expires: {{.Expires}}</time>

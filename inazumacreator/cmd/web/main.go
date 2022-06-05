@@ -6,7 +6,9 @@ import (
   "log"
   "flag"
   "os"
-  
+
+  _ "github.com/go-sql-driver/mysql"
+  "github.com/Arctic-Husky/InazumaCreator/pkg/models/mysql"
 )
 
 type application struct{
@@ -19,7 +21,7 @@ func main() {
   addr := flag.String("addr", ":4000", "Porta da Rede")
 
   dsn := flag.String("dsn",
-                     "1rJx8vlHTM:Nx2KvlJg58@tcp(remotemysql.com)/1rJx8vlHTM?parseTime=true", 
+                     "1rJx8vlHTM:IqMJKCFnZ9@tcp(remotemysql.com)/1rJx8vlHTM?parseTime=true", 
                      "MySql DSN")
 
   flag.Parse()
@@ -36,6 +38,7 @@ func main() {
   app := &application{
     errorLog:errorLog,
     infoLog:infoLog,
+    personagens: &mysql.PersonagemModel{DB:db},
   }
   
   srv := &http.Server{

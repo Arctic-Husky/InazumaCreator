@@ -1,24 +1,24 @@
 {{template "base" .}}
 {{define "title"}} Home {{end}}
 {{define "body"}}
-<h2>Últimos Snippets:</h2>
+<h2>Últimos Personagens:</h2>
 {{if .}}
   <table>
     <tr>
-      <th>Title</th>
+      <th>Nome</th>
       <th>Created</th>
       <th>Id</th>
     </tr>
     {{range .}}
       <tr>
-        <td> <a href="/snippet?id={{.ID}}">{{.Title}}</a></td>
+        <td> <a href="/personagem?id={{.ID}}">{{.Nome}}</a></td>
         <td>{{.Created}}</td>
         <td>#{{.ID}}</td>
       </tr>
     {{end}}
   </table>
 {{else}}
-  <p>Nenhum Snippet válido no momento... </p>
+  <p>Nenhum personagem válido no momento... </p>
 {{end}}
 
 {{end}}

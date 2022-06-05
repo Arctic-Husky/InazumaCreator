@@ -1,6 +1,6 @@
 @font-face {
   font-family: Fonte;
-  src: url("assets/ndsbios_memesbruh03.ttf");
+  src: url("../assets/ndsbios_memesbruh03.ttf");
 }
 
 
@@ -48,7 +48,7 @@ body{
 
 
 nav button {
-    background-image: url("assets/botao.png");
+    background-image: url("../assets/botao.png");
     color: azure;
     
     width: 578px;
@@ -87,26 +87,25 @@ nav button {
 }
 
 .submit {
-  background-image: url("assets/botao.png");
-    color: azure;
-    
-    width: 578px;
-    height: 107px;
-    font-size: 50px;
-    text-align: center;
-    line-height: 7rem;
-    font-family: Fonte;
-    letter-spacing: 1px;
-    position: relative;
-    transition: 0.3s;
-    margin: 3rem;
-    padding: 0;
-    border: none;
+  background-image: url("../assets/botao.png");
+	color: azure;
+	
+	width: 578px;
+	height: 107px;
+	font-size: 50px;
+	text-align: center;
+	line-height: 7rem;
+	font-family: Fonte;
+	letter-spacing: 1px;
+	position: relative;
+	transition: 0.3s;
+	margin: 3rem;
+	padding: 0;
+	border: none;
 }
 
 .rodape{
   background: #F7782A;
-  
-border-top: #087F8C solid 1.5vw;
-height: 10vw;
+	border-top: #087F8C solid 1.5vw;
+	height: 10vw;
 }
