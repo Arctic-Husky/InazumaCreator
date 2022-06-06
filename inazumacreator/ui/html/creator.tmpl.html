@@ -20,10 +20,10 @@
   
   <ul>
     
-    <button onclick="setRadioData('#EndouRadio')" id="Endou" class="button-modelo">Endou</button>
-    <input style="visibility:hidden" type="radio" id="EndouRadio" name="modelo" value="Endou">
-    <button onclick="setRadioData('#ToukoRadio')" id="Touko" class="button-modelo" >Touko</button>
-    <input style="visibility:hidden" type="radio" id="ToukoRadio" name="modelo" value="Touko">
+    <button onclick="setRadioData('#EndouRadio')" id="Endou" class="button-modelo" type="button">Endou</button>
+    <input  type="radio" id="EndouRadio" name="modelo" value="Endou">
+    <button onclick="setRadioData('#ToukoRadio')" id="Touko" class="button-modelo" type="button">Touko</button>
+    <input  type="radio" id="ToukoRadio" name="modelo" value="Touko">
    
   </ul>
 </nav>
@@ -84,26 +84,30 @@ Escolha o elemento do seu personagem
 Escolha 2 habilidades para seu personagem
 </p>
 
-<input type="checkbox" id="check1" name="check1" class="check">
+<input onchange="setCheckboxData(this)" type="checkbox" id="check1" name="check" class="check" value="backtornado" class="poder">
+  <img src="../static/assets/Endou_backtornado.gif" class="hissatsu">
 <label class="layout" for="check1"></label>
   <br>
 
 
 
-<input type="checkbox" id="check2" name="check2" class="check">
+<input onchange="setCheckboxData(this)" type="checkbox" id="check2" name="check" class="check" value="killerblade" class="poder">
+  <img src="../static/assets/Touko_killerblade.gif" class="hissatsu">
 <label class="layout" for="check2"></label>
   <br>
 
 
 
-<input type="checkbox" id="check3" name="check3" class="check">
+<!-- <input onchange="setCheckboxData(this)" type="checkbox" id="check3" name="check" class="check" value="touko_backtornado" class="poder">
+  <img src="../static/assets/touko_backtornado.gif" class="hissatsu">
 <label class="layout" for="check3"></label>
   <br>
 
 
-<input type="checkbox" id="check4" name="check4" class="check">
+<input onchange="setCheckboxData(this)" type="checkbox" id="check4" name="check" class="check" value="touko_killerblade" class="poder">
+  <img src="../static/assets/touko_killerblade.gif" class="hissatsu">
 <label class="layout" for="check4"></label>
-  <br>
+  <br> -->
 
 
 
@@ -119,7 +123,26 @@ Escolha 2 habilidades para seu personagem
 </div>
 
 <script>
+  var index = 1
+function setCheckboxData(elemento){
+  if(elemento.checked == false){
+    elemento.name = "check"
+    return
+  }
+  if(elemento.name == "check1" || elemento.name == "check2"){
+    elemento.name = "check"
+    return
+  }
 
+  if(index == 1){
+    index = 2
+  }else if(index == 2){
+    index = 1
+  }
+  //var elem = document.getElementById(id);
+  elemento.name = "check" + index
+}
+  
 function setRadioData(id){
 	$(".button-modelo").click(function(event){
 		event.preventDefault()	
@@ -141,9 +164,9 @@ function sendData() {
     })
 }
 
-var form = document.getElementById("form");
-function handleForm(event) { event.preventDefault(); } 
-form.addEventListener('submit', handleForm);
+// var form = document.getElementById("form");
+// function handleForm(event) { event.preventDefault(); } 
+// form.addEventListener('submit', handleForm);
 sendData()
   
 

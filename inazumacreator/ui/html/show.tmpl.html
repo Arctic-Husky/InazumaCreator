@@ -8,12 +8,15 @@
       <span>#{{.ID}}</span>
     </div>
     <pre> <code>{{.Habilidade1}}</code> </pre>
+    <img src="../static/assets/{{.Modelo}}_{{.Habilidade1}}.gif">
     <pre> <code>{{.Habilidade2}}</code> </pre>
+    <img src="../static/assets/{{.Modelo}}_{{.Habilidade2}}.gif">
     <pre> <code>{{.Posicao}}</code> </pre>
     <pre> <code>{{.Elemento}}</code> </pre>
+    <img src="../static/assets/{{.Elemento}}.png">
     <div class="metadata">
-      <time>Created: {{.Created}}</time>
-      <time>Expires: {{.Expires}}</time>
+      <time>Data de criação: {{.Created}}</time><br>
+      <time>Data de expiração: {{.Expires}}</time>
     </div>
   </div>
 {{end}}

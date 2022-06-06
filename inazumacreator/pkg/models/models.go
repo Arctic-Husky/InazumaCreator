@@ -11,6 +11,7 @@ var ErrNoRecord = errors.New("models: no matching record Found")
 type Personagem struct{
   // a decidir
   ID int
+  Modelo string
   Nome string
   Habilidade1 string
   Habilidade2 string

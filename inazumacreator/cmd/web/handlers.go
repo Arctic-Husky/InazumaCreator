@@ -6,10 +6,21 @@ import (
 	"html/template"
 	"net/http"
 	"strconv"
+  "time"
 
   
   "github.com/Arctic-Husky/InazumaCreator/pkg/models"
 )
+
+type personagem struct{
+  Modelo string
+  Nome string
+  Habilidade1 string
+  Habilidade2 string
+  Posicao string
+  Elemento string
+  Expires time.Time
+}
 
 func(app *application) home(rw http.ResponseWriter, r *http.Request){
   if r.URL.Path != "/"{
@@ -71,7 +82,24 @@ func(app *application) showPersonagem(rw http.ResponseWriter, r *http.Request){
     return
   }
 
-  fmt.Fprintf(rw, "%v",s)
+
+  files := []string{
+    "./ui/html/show.tmpl.html",
+    "./ui/html/footer.tmpl.html",
+    "./ui/html/top.tmpl.html",
+    "./ui/html/base.tmpl.html",
+  }
+  ts, err := template.ParseFiles(files...)
+  if err != nil{
+    app.serverError(rw, err)
+    return
+  }
+  err = ts.Execute(rw, s)
+  if err != nil{
+    app.serverError(rw, err)
+    return
+  }
+  //fmt.Fprintf(rw, "%v",s)
 }
 
 func(app *application) showSnippet(rw http.ResponseWriter, r *http.Request){
@@ -116,6 +144,30 @@ func(app *application) showSnippet(rw http.ResponseWriter, r *http.Request){
 }
 
 func (app *application) createPersonagem(rw http.ResponseWriter, r *http.Request){
+
+  pers := personagem{
+    Modelo: r.URL.Query().Get("modelo"),
+    Nome: r.URL.Query().Get("fname"),
+    Habilidade1: r.URL.Query().Get("check1"),
+    Habilidade2: r.URL.Query().Get("check2"),
+    Posicao: r.URL.Query().Get("posicao"),
+    Elemento: r.URL.Query().Get("elemento"),
+  }
+
+  
+  
+  if len(pers.Modelo) > 0{
+    id,err := app.personagens.Insert(pers.Modelo, pers.Nome, pers.Habilidade1, pers.Habilidade2, pers.Posicao, pers.Elemento, "7")
+  if err != nil{
+    app.serverError(rw,err)
+    return
+  }
+
+  http.Redirect(rw,r,fmt.Sprintf("/personagem?id=%d",id), http.StatusSeeOther)
+  }
+
+  
+  
   files := []string{
     "./ui/html/creator.tmpl.html",
     "./ui/html/footer.tmpl.html",
@@ -132,6 +184,8 @@ func (app *application) createPersonagem(rw http.ResponseWriter, r *http.Request
     app.serverError(rw, err)
     return
   }
+  
+  
   // nome := "Teste"
   // hab1 := "god hand"
   // hab2 := "back tornado"
@@ -147,6 +201,12 @@ func (app *application) createPersonagem(rw http.ResponseWriter, r *http.Request
 
   // http.Redirect(rw,r,fmt.Sprintf("/personagem?id=%d",id), http.StatusSeeOther)
 }
+
+// func(app *application) registrarPersonagem(rw http.ResponseWriter, r *http.Request){
+  
+//   r.ParseForm()
+//   fmt.Fprintf(rw, "%v", r.Form)
+// }
 
 // func(app *application) createSnippet(rw http.ResponseWriter, r *http.Request){
 //   if r.Method != "POST"{
