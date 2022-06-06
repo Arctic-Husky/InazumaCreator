@@ -98,16 +98,31 @@ Escolha 2 habilidades para seu personagem
 
 
 
-<!-- <input onchange="setCheckboxData(this)" type="checkbox" id="check3" name="check" class="check" value="touko_backtornado" class="poder">
-  <img src="../static/assets/touko_backtornado.gif" class="hissatsu">
+<input onchange="setCheckboxData(this)" type="checkbox" id="check3" name="check" class="check" value="godhand" class="poder">
+  <img src="../static/assets/Touko_godhand.gif" class="hissatsu">
 <label class="layout" for="check3"></label>
   <br>
 
 
-<input onchange="setCheckboxData(this)" type="checkbox" id="check4" name="check" class="check" value="touko_killerblade" class="poder">
-  <img src="../static/assets/touko_killerblade.gif" class="hissatsu">
+<input onchange="setCheckboxData(this)" type="checkbox" id="check4" name="check" class="check" value="spiderweb" class="poder">
+  <img src="../static/assets/Rando_spiderweb.gif" class="hissatsu">
 <label class="layout" for="check4"></label>
-  <br> -->
+  <br>
+
+<input onchange="setCheckboxData(this)" type="checkbox" id="check5" name="check" class="check" value="freezeshot" class="poder">
+  <img src="../static/assets/Rando_freezeshot.gif" class="hissatsu">
+<label class="layout" for="check5"></label>
+  <br>
+  
+  <input onchange="setCheckboxData(this)" type="checkbox" id="check6" name="check" class="check" value="clonedefense" class="poder">
+  <img src="../static/assets/Rando_clonedefense.gif" class="hissatsu">
+<label class="layout" for="check6"></label>
+  <br>
+
+  <input onchange="setCheckboxData(this)" type="checkbox" id="check7" name="check" class="check" value="spiderweb" class="poder">
+  <img src="../static/assets/Endou_astrobreak.gif" class="hissatsu">
+<label class="layout" for="check7"></label>
+  <br>
 
 
 
@@ -129,8 +144,13 @@ function setCheckboxData(elemento){
     elemento.name = "check"
     return
   }
-  if(elemento.name == "check1" || elemento.name == "check2"){
+  if(elemento.name == "check1"){
     elemento.name = "check"
+    index = 2
+    return
+  }else if(elemento.name == "check2"){
+    elemento.name = "check"
+    index = 1
     return
   }
 

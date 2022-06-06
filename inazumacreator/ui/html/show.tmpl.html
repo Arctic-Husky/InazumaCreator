@@ -2,21 +2,23 @@
 {{define "title"}} Personagem {{.ID}} {{end}}
 
 {{define "body"}}
+<div class="personagemTemplate">
   <div class="personagem">
     <div class="metadata">
       <strong>{{.Nome}}</strong>
       <span>#{{.ID}}</span>
     </div>
-    <pre> <code>{{.Habilidade1}}</code> </pre>
-    <img src="../static/assets/{{.Modelo}}_{{.Habilidade1}}.gif">
-    <pre> <code>{{.Habilidade2}}</code> </pre>
-    <img src="../static/assets/{{.Modelo}}_{{.Habilidade2}}.gif">
-    <pre> <code>{{.Posicao}}</code> </pre>
-    <pre> <code>{{.Elemento}}</code> </pre>
-    <img src="../static/assets/{{.Elemento}}.png">
+     {{.Habilidade1}}<br>
+    <img src="../static/assets/{{.Modelo}}_{{.Habilidade1}}.gif" class="dentroDoTemplate"><br>
+     {{.Habilidade2}}<br>
+    <img src="../static/assets/{{.Modelo}}_{{.Habilidade2}}.gif" class="dentroDoTemplate"><br>
+     {{.Posicao}} <br>
+     {{.Elemento}} 
+    <img src="../static/assets/{{.Elemento}}.png" id="elementoImagem"><br>
     <div class="metadata">
       <time>Data de criação: {{.Created}}</time><br>
       <time>Data de expiração: {{.Expires}}</time>
     </div>
   </div>
+</div>
 {{end}}

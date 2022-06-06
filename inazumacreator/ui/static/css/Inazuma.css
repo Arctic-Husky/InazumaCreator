@@ -13,6 +13,17 @@ body{
    
 }
 
+/* .personagemTemplate::before{
+  position: absolute;
+  content: url("../assets/personagem_template.png");
+}
+
+.dentroDoTemplate{
+  position: relative;
+  #elementoImagem{
+  }
+} */
+
 .topnav {
     overflow: hidden;
     background-color: #087F8C;
@@ -110,4 +121,9 @@ nav button {
   background: #F7782A;
 	border-top: #087F8C solid 1.5vw;
 	height: 10vw;
+}
+
+.personagemTemplate{
+  text-align: center;
+  font-size: 30px;
 }

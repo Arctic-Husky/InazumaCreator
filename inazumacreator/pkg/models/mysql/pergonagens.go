@@ -44,7 +44,7 @@ func(m *PersonagemModel)Get(id int)(*models.Personagem, error){
 }
 
 func(m *PersonagemModel)Latest()([]*models.Personagem, error){
-  stmt := `SELECT id, modelo, nome, habilidade1, habilidade2, posicao, elemento, created, expires FROM Personagens WHERE expires > UTC_TIMESTAMP() ORDER BY created DESC LIMIT 10`
+  stmt := `SELECT id, modelo, nome, habilidade1, habilidade2, posicao, elemento, created, expires FROM Personagens WHERE expires > UTC_TIMESTAMP() ORDER BY created DESC LIMIT 50`
 
   rows , err := m.DB.Query(stmt)
   if err != nil{
