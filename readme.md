@@ -6,7 +6,7 @@ O projeto se trata de um criador de personagens do jogo "Inazuma Eleven 2", onde
 
 [![image](https://user-images.githubusercontent.com/1398269/172256067-584ef818-bb68-4976-a868-fa601600950b.png)](https://www.youtube.com/watch?v=531BO1Y4ZCw)
 
-> Vídeo demonstrando o projeto.
+> Vídeo de demonstração do projeto.
 
 ## Documentação
 
