@@ -2,6 +2,10 @@
 
 O projeto se trata de um criador de personagens do jogo "Inazuma Eleven 2", onde é possível criar e compartilhar personagens, além de visualizar os personagens criados por outros usuários.
 
+## URL do site
+
+> https://inazumacreator.arctichusky.repl.co
+
 ## Replit
 
 > https://replit.com/@ArcticHusky/InazumaCreator
